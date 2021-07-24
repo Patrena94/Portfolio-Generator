@@ -8,7 +8,7 @@ fs.writeFile("test.txt", userInput,(err)=>{
 }
 console.log("done!")
 })
-// // callback function
-// fs.readFile("log.text", "utfs",(err,data)=>{
+// callback function
+fs.readFile("log.text", "utfs",(err,data)=>{
 
-// })
+})

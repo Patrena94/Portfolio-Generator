@@ -1,8 +1,10 @@
-const fs = require('fs');
-const profileDataArgs = process.argv.slice(2);
-const [name, github] = profileDataArgs;
-console.log(process.argv)
-const generatePage = (userName, githubName) => { 
+// const fs = require('fs');
+// const profileDataArgs = process.argv.slice(2);
+// const [name, github] = profileDataArgs;
+// console.log(process.argv)
+// const generatePage = (userName, githubName) 
+const generatePage=templateData => { 
+    console.log(templateData);
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -13,16 +15,15 @@ return `
     <title>Portfolio Demo</title>
 </head>
 <body>
-    <h1>${name}</h1>
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-    
-// </body>
+    <h1>${templateData.name}</h1>
+    <h2><a href="https://github.com/${templateData.github}">Github</a></h2> 
+</body>
 // <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </html>
 `;
 };
-fs.writeFile('index.html', generatePage("Patrena Smith", "Patrena94"), err => {
-    if(err) throw err;
-    console.log('portfolio complete! Check out index.html to see the output!');
-});
+// fs.writeFile('index.html', generatePage("Patrena Smith", "Patrena94"), err => {
+//     if(err) throw err;
+//     console.log('portfolio complete! Check out index.html to see the output!');
+// });
 module.exports=generatePage
