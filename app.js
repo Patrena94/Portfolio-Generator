@@ -64,11 +64,35 @@ const inquirer = require('inquirer');
 // `;
 // };
 inquirer
-.prompt([
+const promptUser =() => {
+    return inquirer.prompt([
     {
     type: 'input',
     name: 'name',
     message: 'What is your name?'
+},
+{
+    type: 'input',
+    name: 'github',
+    message: 'Enter your GitHub Username'
+},
+{
+  type: 'confirm',
+  name: 'confirmAbout',
+  message: 'Would you like to enter some information about yourself for an "About" section?',
+  default: true
+},
+{
+  type: 'input',
+  name: 'about',
+  message: 'Provide some information about yourself:',
+  when: ({ confirmAbout }) => {
+    if (confirmAbout) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-])
-.then(answers => console.log(answers));
+    ])}
+promptUser().then(answers => console.log(answers))
